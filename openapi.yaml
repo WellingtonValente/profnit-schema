@@ -4,7 +4,7 @@ info:
   description: Base de textos das apostilas do PROFNIT em JSON estático hospedado no GitHub Pages.
   version: "1.0.0"
 servers:
-  - url: https://WellingtonValente.github.io/profnit-schema
+  - url: "https://wellingtonvalente.github.io/profnit-schema/"
 paths:
   /profnit_apostilas.json:
     get:
