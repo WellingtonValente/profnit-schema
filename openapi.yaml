@@ -1,17 +1,28 @@
-{
-  "schema_version": "v1",
-  "name_for_human": "Assistente PROFNIT",
-  "name_for_model": "profnit_assistente",
-  "description_for_human": "Consulta textos das apostilas do PROFNIT para ajudar na produção de trabalhos acadêmicos.",
-  "description_for_model": "Ferramenta de consulta a textos extraídos das apostilas do PROFNIT em JSON hospedado no GitHub Pages.",
-  "auth": {
-    "type": "none"
-  },
-  "api": {
-    "type": "openapi",
-    "url": "https://WellingtonValente.github.io/profnit-schema/openapi.yaml"
-  },
-  "logo_url": "https://avatars.githubusercontent.com/u/9919?s=200&v=4",
-  "contact_email": "wellingtonvalente@hotmail.com",
-  "legal_info_url": "https://WellingtonValente.github.io/profnit-schema/privacy"
-}
+openapi: 3.1.0
+info:
+  title: PROFNIT Apostilas
+  description: Base de textos das apostilas do PROFNIT em JSON estático hospedado no GitHub Pages.
+  version: "1.0.0"
+servers:
+  - url: https://WellingtonValente.github.io/profnit-schema
+paths:
+  /profnit_apostilas.json:
+    get:
+      summary: Lista as apostilas do PROFNIT
+      operationId: listarApostilas
+      responses:
+        '200':
+          description: JSON com todas as apostilas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    titulo:
+                      type: string
+                    arquivo:
+                      type: string
+                    texto:
+                      type: string
